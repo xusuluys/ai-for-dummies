@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход и регистрация | ИИ для чайников</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигационное меню -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>ИИ для чайников</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="course.html">Курс по ИИ</a></li>
+                    <li><a href="trainer.html">Тренажер</a></li>
+                    <li><a href="login.html" class="active">Вход</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#login-form" class="btn btn-outline">Вход</a>
+                    <a href="#register-form" class="btn btn-primary">Регистрация</a>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Формы входа и регистрации -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <!-- Форма входа -->
+                <div class="auth-form active" id="login-form">
+                    <h2>Вход в аккаунт</h2>
+                    <p class="auth-subtitle">Введите ваши данные для входа</p>
+                    
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="login-email">Электронная почта</label>
+                            <input type="email" id="login-email" placeholder="example@mail.ru" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password">Пароль</label>
+                            <div class="password-input">
+                                <input type="password" id="login-password" placeholder="Введите пароль" required>
+                                <button type="button" class="password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <a href="#forgot-password" class="forgot-password">Забыли пароль?</a>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Запомнить меня</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Войти</button>
+                        
+                        <div class="auth-divider">
+                            <span>Или войти через</span>
+                        </div>
+                        
+                        <div class="social-auth">
+                            <button type="button" class="social-btn vk">
+                                <i class="fab fa-vk"></i>
+                                <span>ВКонтакте</span>
+                            </button>
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i>
+                                <span>Google</span>
+                            </button>
+                            <button type="button" class="social-btn github">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </button>
+                        </div>
+                        
+                        <div class="auth-switch">
+                            Нет аккаунта? <a href="#register-form" class="switch-link">Зарегистрироваться</a>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Форма регистрации -->
+                <div class="auth-form" id="register-form">
+                    <h2>Регистрация</h2>
+                    <p class="auth-subtitle">Создайте новый аккаунт</p>
+                    
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="register-name">Имя и фамилия</label>
+                            <input type="text" id="register-name" placeholder="Иван Иванов" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-email">Электронная почта</label>
+                            <input type="email" id="register-email" placeholder="example@mail.ru" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-password">Пароль</label>
+                            <div class="password-input">
+                                <input type="password" id="register-password" placeholder="Не менее 8 символов" required>
+                                <button type="button" class="password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength">
+                                <div class="strength-bar"></div>
+                                <span class="strength-text">Слабый пароль</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-confirm">Подтверждение пароля</label>
+                            <div class="password-input">
+                                <input type="password" id="register-confirm" placeholder="Повторите пароль" required>
+                                <button type="button" class="password-toggle">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="register-age">Возраст</label>
+                            <select id="register-age" required>
+                                <option value="">Выберите возраст</option>
+                                <option value="13-17">13-17 лет</option>
+                                <option value="18-25">18-25 лет</option>
+                                <option value="26-35">26-35 лет</option>
+                                <option value="36-45">36-45 лет</option>
+                                <option value="46+">46+ лет</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" id="terms" required>
+                            <label for="terms">Я принимаю <a href="#">Условия использования</a> и <a href="#">Политику конфиденциальности</a></label>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input type="checkbox" id="newsletter">
+                            <label for="newsletter">Хочу получать новости о курсах и обновлениях</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Создать аккаунт</button>
+                        
+                        <div class="auth-divider">
+                            <span>Или зарегистрироваться через</span>
+                        </div>
+                        
+                        <div class="social-auth">
+                            <button type="button" class="social-btn vk">
+                                <i class="fab fa-vk"></i>
+                                <span>ВКонтакте</span>
+                            </button>
+                            <button type="button" class="social-btn google">
+                                <i class="fab fa-google"></i>
+                                <span>Google</span>
+                            </button>
+                            <button type="button" class="social-btn github">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </button>
+                        </div>
+                        
+                        <div class="auth-switch">
+                            Уже есть аккаунт? <a href="#login-form" class="switch-link">Войти</a>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Восстановление пароля -->
+                <div class="auth-form" id="forgot-password">
+                    <h2>Восстановление пароля</h2>
+                    <p class="auth-subtitle">Введите email для восстановления доступа</p>
+                    
+                    <form id="forgotForm">
+                        <div class="form-group">
+                            <label for="forgot-email">Электронная почта</label>
+                            <input type="email" id="forgot-email" placeholder="example@mail.ru" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Отправить инструкции</button>
+                        
+                        <div class="auth-switch">
+                            <a href="#login-form" class="switch-link">← Вернуться ко входу</a>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Информация о преимуществах -->
+                <div class="auth-info">
+                    <h3>Преимущества аккаунта</h3>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check-circle"></i> Сохранение прогресса обучения</li>
+                        <li><i class="fas fa-check-circle"></i> Доступ к сертификатам</li>
+                        <li><i class="fas fa-check-circle"></i> Бесплатные консультации</li>
+                        <li><i class="fas fa-check-circle"></i> Персональные рекомендации</li>
+                        <li><i class="fas fa-check-circle"></i> Участие в вебинарах</li>
+                        <li><i class="fas fa-check-circle"></i> Доступ к сообществу</li>
+                    </ul>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>«Благодаря этому курсу я смог понять основы ИИ без какого-либо опыта в программировании. Очень рекомендую!»</p>
+                            <div class="testimonial-author">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Алексей">
+                                <div>
+                                    <h4>Алексей Петров</h4>
+                                    <span>Студент, 16 лет</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-brain"></i>
+                        <span>ИИ для чайников</span>
+                    </a>
+                    <p>Образовательный проект по искусственному интеллекту для начинающих. Бесплатные курсы и консультации.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Страницы</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="course.html">Курс по ИИ</a></li>
+                        <li><a href="trainer.html">Тренажер</a></li>
+                        <li><a href="login.html">Вход</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Контакты</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +7 (999) 123-45-67</p>
+                        <p><i class="fas fa-envelope"></i> info@ai-for-dummies.ru</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://vk.com" target="_blank"><i class="fab fa-vk"></i></a>
+                        <a href="https://t.me" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 ИИ для чайников. Все права защищены.</p>
+                <p>Образовательный некоммерческий проект.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Дополнительный скрипт для страницы входа -->
+    <script>
+        // Логика переключения между формами
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const forgotForm = document.getElementById('forgot-password');
+            const switchLinks = document.querySelectorAll('.switch-link');
+            
+            // Обработчики для переключения форм
+            switchLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    
+                    // Скрываем все формы
+                    loginForm.classList.remove('active');
+                    registerForm.classList.remove('active');
+                    forgotForm.classList.remove('active');
+                    
+                    // Показываем целевую форму
+                    document.querySelector(targetId).classList.add('active');
+                });
+            });
+            
+            // Переключение видимости пароля
+            const passwordToggles = document.querySelectorAll('.password-toggle');
+            passwordToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const input = this.parentElement.querySelector('input');
+                    const icon = this.querySelector('i');
+                    
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    } else {
+                        input.type = 'password';
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                });
+            });
+            
+            // Проверка сложности пароля
+            const passwordInput = document.getElementById('register-password');
+            const strengthBar = document.querySelector('.strength-bar');
+            const strengthText = document.querySelector('.strength-text');
+            
+            if (passwordInput) {
+                passwordInput.addEventListener('input', function() {
+                    const password = this.value;
+                    let strength = 0;
+                    
+                    // Проверяем длину
+                    if (password.length >= 8) strength++;
+                    if (password.length >= 12) strength++;
+                    
+                    // Проверяем наличие разных символов
+                    if (/[A-Z]/.test(password)) strength++;
+                    if (/[0-9]/.test(password)) strength++;
+                    if (/[^A-Za-z0-9]/.test(password)) strength++;
+                    
+                    // Обновляем индикатор
+                    const width = strength * 20;
+                    strengthBar.style.width = `${width}%`;
+                    
+                    // Обновляем текст
+                    if (strength === 0) {
+                        strengthBar.style.backgroundColor = '#f94144';
+                        strengthText.textContent = 'Слабый пароль';
+                    } else if (strength <= 2) {
+                        strengthBar.style.backgroundColor = '#f9c74f';
+                        strengthText.textContent = 'Средний пароль';
+                    } else if (strength <= 4) {
+                        strengthBar.style.backgroundColor = '#90be6d';
+                        strengthText.textContent = 'Хороший пароль';
+                    } else {
+                        strengthBar.style.backgroundColor = '#43aa8b';
+                        strengthText.textContent = 'Отличный пароль!';
+                    }
+                });
+            }
+            
+            // Обработка формы входа
+            const loginFormElement = document.getElementById('loginForm');
+            if (loginFormElement) {
+                loginFormElement.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('login-email').value;
+                    const password = document.getElementById('login-password').value;
+                    
+                    // Здесь должна быть реальная проверка на сервере
+                    // Для демо просто покажем успешный вход
+                    alert(`Демо-вход выполнен!\nEmail: ${email}\nПароль: ${password}`);
+                    
+                    // Перенаправляем на главную
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                });
+            }
+            
+            // Обработка формы регистрации
+            const registerFormElement = document.getElementById('registerForm');
+            if (registerFormElement) {
+                registerFormElement.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('register-name').value;
+                    const email = document.getElementById('register-email').value;
+                    const password = document.getElementById('register-password').value;
+                    const confirmPassword = document.getElementById('register-confirm').value;
+                    const age = document.getElementById('register-age').value;
+                    
+                    // Проверка совпадения паролей
+                    if (password !== confirmPassword) {
+                        alert('Пароли не совпадают!');
+                        return;
+                    }
+                    
+                    // Проверка принятия условий
+                    if (!document.getElementById('terms').checked) {
+                        alert('Необходимо принять условия использования');
+                        return;
+                    }
+                    
+                    // Здесь должна быть реальная регистрация на сервере
+                    // Для демо просто покажем успешную регистрацию
+                    alert(`Демо-регистрация успешна!\nИмя: ${name}\nEmail: ${email}\nВозраст: ${age}`);
+                    
+                    // Перенаправляем на главную
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                });
+            }
+            
+            // Обработка формы восстановления
+            const forgotFormElement = document.getElementById('forgotForm');
+            if (forgotFormElement) {
+                forgotFormElement.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = document.getElementById('forgot-email').value;
+                    
+                    // Для демо просто покажем сообщение
+                    alert(`Инструкции по восстановлению отправлены на: ${email}`);
+                    
+                    // Возвращаем к форме входа
+                    setTimeout(() => {
+                        loginForm.classList.add('active');
+                        forgotForm.classList.remove('active');
+                        document.getElementById('forgot-email').value = '';
+                    }, 1500);
+                });
+            }
+            
+            // Обработка социальных кнопок
+            const socialButtons = document.querySelectorAll('.social-btn');
+            socialButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const platform = this.classList.contains('vk') ? 'VKontakte' :
+                                   this.classList.contains('google') ? 'Google' : 'GitHub';
+                    alert(`Демо: Авторизация через ${platform}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

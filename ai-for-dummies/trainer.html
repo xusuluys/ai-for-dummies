@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажер по созданию нейросети | ИИ для чайников</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигационное меню -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>ИИ для чайников</span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="course.html">Курс по ИИ</a></li>
+                    <li><a href="trainer.html" class="active">Тренажер</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-outline">Вход</a>
+                    <a href="login.html" class="btn btn-primary">Регистрация</a>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Заголовок тренажера -->
+    <section class="trainer-header">
+        <div class="container">
+            <div class="trainer-title-section">
+                <h1>Тренажер: Создание простой нейросети</h1>
+                <p>Пошаговая инструкция для создания нейросети для анализа настроения и простого разговора в чате.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Тренажер -->
+    <section class="section">
+        <div class="container">
+            <div class="trainer-container">
+                <!-- Шаги тренажера -->
+                <div class="steps-sidebar">
+                    <div class="steps-list">
+                        <div class="step-item active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-info">
+                                <h4>Подготовка среды</h4>
+                                <p>Настройка Python и библиотек</p>
+                            </div>
+                        </div>
+                        <div class="step-item" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-info">
+                                <h4>Сбор данных</h4>
+                                <p>Подготовка данных для обучения</p>
+                            </div>
+                        </div>
+                        <div class="step-item" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-info">
+                                <h4>Создание модели</h4>
+                                <p>Проектирование архитектуры нейросети</p>
+                            </div>
+                        </div>
+                        <div class="step-item" data-step="4">
+                            <div class="step-number">4</div>
+                            <div class="step-info">
+                                <h4>Обучение нейросети</h4>
+                                <p>Процесс обучения на подготовленных данных</p>
+                            </div>
+                        </div>
+                        <div class="step-item" data-step="5">
+                            <div class="step-number">5</div>
+                            <div class="step-info">
+                                <h4>Тестирование</h4>
+                                <p>Проверка работы нейросети</p>
+                            </div>
+                        </div>
+                        <div class="step-item" data-step="6">
+                            <div class="step-number">6</div>
+                            <div class="step-info">
+                                <h4>Создание чата</h4>
+                                <p>Интеграция нейросети в простой интерфейс</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Контент шага -->
+                <div class="step-content">
+                    <div class="step-content-wrapper">
+                        <!-- Шаг 1 -->
+                        <div class="step-panel active" id="step1">
+                            <h2>Шаг 1: Подготовка среды</h2>
+                            <p>Для создания нейросети нам понадобится язык программирования Python и несколько библиотек.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Установка Python</span>
+                                    <button class="copy-btn" data-code="python-install">Копировать</button>
+                                </div>
+                                <pre><code id="python-install"># Скачайте Python с официального сайта:
+# https://www.python.org/downloads/
+
+# После установки проверьте версию:
+python --version</code></pre>
+                            </div>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Установка необходимых библиотек</span>
+                                    <button class="copy-btn" data-code="pip-install">Копировать</button>
+                                </div>
+                                <pre><code id="pip-install"># Откройте терминал или командную строку и выполните:
+
+pip install tensorflow
+pip install numpy
+pip install pandas
+pip install scikit-learn</code></pre>
+                            </div>
+                            
+                            <div class="task-check">
+                                <input type="checkbox" id="step1-check">
+                                <label for="step1-check">Я установил Python и необходимые библиотеки</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Шаг 2 -->
+                        <div class="step-panel" id="step2">
+                            <h2>Шаг 2: Сбор данных</h2>
+                            <p>Для обучения нейросети анализу настроения нам нужны данные - тексты с указанием их эмоциональной окраски.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Создание простого набора данных</span>
+                                    <button class="copy-btn" data-code="create-data">Копировать</button>
+                                </div>
+                                <pre><code id="create-data">import pandas as pd
+
+# Создадим простой набор данных для обучения
+data = {
+    'text': [
+        'Я очень рад сегодняшнему дню',
+        'Это просто ужасно, все пропало',
+        'Нормальный день, ничего особенного',
+        'Обожаю эту погоду, так здорово',
+        'Ненавижу ждать, это раздражает',
+        'Интересная книга, советую прочитать'
+    ],
+    'sentiment': ['positive', 'negative', 'neutral', 'positive', 'negative', 'positive']
+}
+
+df = pd.DataFrame(data)
+print(df)</code></pre>
+                            </div>
+                            
+                            <div class="info-box">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>В реальном проекте вы бы использовали большие наборы данных, но для нашего тренажера этого достаточно.</p>
+                            </div>
+                            
+                            <div class="task-check">
+                                <input type="checkbox" id="step2-check">
+                                <label for="step2-check">Я создал набор данных для обучения</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Шаг 3 -->
+                        <div class="step-panel" id="step3">
+                            <h2>Шаг 3: Создание модели нейросети</h2>
+                            <p>Создадим простую нейросеть с помощью библиотеки TensorFlow/Keras.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Проектирование архитектуры нейросети</span>
+                                    <button class="copy-btn" data-code="create-model">Копировать</button>
+                                </div>
+                                <pre><code id="create-model">import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
+
+# Создаем простую модель нейросети
+model = keras.Sequential([
+    # Входной слой
+    layers.Dense(64, activation='relu', input_shape=(100,)),
+    # Скрытый слой
+    layers.Dense(32, activation='relu'),
+    # Выходной слой (3 класса: positive, negative, neutral)
+    layers.Dense(3, activation='softmax')
+])
+
+# Компилируем модель
+model.compile(
+    optimizer='adam',
+    loss='categorical_crossentropy',
+    metrics=['accuracy']
+)
+
+print(model.summary())</code></pre>
+                            </div>
+                            
+                            <div class="info-box">
+                                <i class="fas fa-info-circle"></i>
+                                <p>Это очень простая нейросеть для демонстрации. В реальных проектах архитектура может быть значительно сложнее.</p>
+                            </div>
+                            
+                            <div class="task-check">
+                                <input type="checkbox" id="step3-check">
+                                <label for="step3-check">Я создал модель нейросети</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Шаг 4 -->
+                        <div class="step-panel" id="step4">
+                            <h2>Шаг 4: Обучение нейросети</h2>
+                            <p>Обучим нашу нейросеть на подготовленных данных.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Подготовка данных и обучение</span>
+                                    <button class="copy-btn" data-code="train-model">Копировать</button>
+                                </div>
+                                <pre><code id="train-model">from sklearn.preprocessing import LabelEncoder
+from tensorflow.keras.preprocessing.text import Tokenizer
+import numpy as np
+
+# Пример данных для обучения
+texts = [
+    'Я очень рад сегодняшнему дню',
+    'Это просто ужасно, все пропало',
+    'Нормальный день, ничего особенного',
+    'Обожаю эту погоду, так здорово',
+    'Ненавижу ждать, это раздражает',
+    'Интересная книга, советую прочитать'
+]
+labels = ['positive', 'negative', 'neutral', 'positive', 'negative', 'positive']
+
+# Токенизация текстов
+tokenizer = Tokenizer(num_words=100)
+tokenizer.fit_on_texts(texts)
+sequences = tokenizer.texts_to_sequences(texts)
+
+# Преобразуем последовательности в матрицу
+X = keras.preprocessing.sequence.pad_sequences(sequences, maxlen=10)
+
+# Кодируем метки
+encoder = LabelEncoder()
+y = encoder.fit_transform(labels)
+y = keras.utils.to_categorical(y, num_classes=3)
+
+# Обучаем модель (в реальном проекте нужно больше данных и эпох)
+model.fit(X, y, epochs=10, batch_size=2, verbose=1)</code></pre>
+                            </div>
+                            
+                            <div class="task-check">
+                                <input type="checkbox" id="step4-check">
+                                <label for="step4-check">Я обучил модель на данных</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Шаг 5 -->
+                        <div class="step-panel" id="step5">
+                            <h2>Шаг 5: Тестирование нейросети</h2>
+                            <p>Проверим, как наша нейросеть определяет настроение в тексте.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Функция для предсказания настроения</span>
+                                    <button class="copy-btn" data-code="test-model">Копировать</button>
+                                </div>
+                                <pre><code id="test-model">def predict_sentiment(text):
+    # Преобразуем текст в последовательность чисел
+    sequence = tokenizer.texts_to_sequences([text])
+    padded = keras.preprocessing.sequence.pad_sequences(sequence, maxlen=10)
+    
+    # Получаем предсказание
+    prediction = model.predict(padded)
+    class_idx = np.argmax(prediction)
+    
+    # Преобразуем индекс в название класса
+    classes = ['negative', 'neutral', 'positive']
+    return classes[class_idx]
+
+# Тестируем на нескольких примерах
+test_texts = [
+    'Мне очень нравится это приложение',
+    'Все плохо, ничего не получается',
+    'Сегодня обычный день'
+]
+
+for text in test_texts:
+    sentiment = predict_sentiment(text)
+    print(f'Текст: "{text}" -> Настроение: {sentiment}')</code></pre>
+                            </div>
+                            
+                            <div class="chat-demo">
+                                <h3>Демонстрация работы нейросети</h3>
+                                <div class="chat-window">
+                                    <div class="chat-messages">
+                                        <div class="message ai">
+                                            <p>Привет! Я нейросеть для анализа настроения. Напиши что-нибудь, и я определю, позитивное у тебя настроение, негативное или нейтральное.</p>
+                                        </div>
+                                    </div>
+                                    <div class="chat-input">
+                                        <input type="text" id="userInput" placeholder="Введите текст для анализа...">
+                                        <button id="sendBtn">Отправить</button>
+                                    </div>
+                                    <div id="sentimentResult"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-check">
+                                <input type="checkbox" id="step5-check">
+                                <label for="step5-check">Я протестировал работу нейросети</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Шаг 6 -->
+                        <div class="step-panel" id="step6">
+                            <h2>Шаг 6: Создание простого чата</h2>
+                            <p>Интегрируем нашу нейросеть в простой интерфейс чата.</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Простой чат-бот с анализом настроения</span>
+                                    <button class="copy-btn" data-code="chat-bot">Копировать</button>
+                                </div>
+                                <pre><code id="chat-bot">import random
+
+def simple_chatbot():
+    print("Чат-бот: Привет! Я простой чат-бот с нейросетью для анализа настроения.")
+    print("Чат-бот: Напиши что-нибудь, и я отвечу, учитывая твое настроение.")
+    
+    responses = {
+        'positive': [
+            "Рад слышать, что у тебя хорошее настроение!",
+            "Здорово, что ты в позитивном настроении!",
+            "Отлично! Продолжай в том же духе!"
+        ],
+        'negative': [
+            "Мне жаль, что у тебя плохое настроение.",
+            "Постарайся думать о чем-то хорошем.",
+            "Надеюсь, твое настроение скоро улучшится."
+        ],
+        'neutral': [
+            "Понятно. Расскажи мне больше.",
+            "Интересно. Что еще ты хотел бы обсудить?",
+            "Спасибо, что поделился."
+        ]
+    }
+    
+    while True:
+        user_input = input("Вы: ")
+        if user_input.lower() in ['выход', 'exit', 'quit']:
+            print("Чат-бот: До свидания!")
+            break
+        
+        # Анализируем настроение
+        sentiment = predict_sentiment(user_input)
+        
+        # Выбираем ответ на основе настроения
+        response = random.choice(responses[sentiment])
+        print(f"Чат-бот (определил настроение: {sentiment}): {response}")
+
+# Запускаем чат-бота
+simple_chatbot()</code></pre>
+                            </div>
+                            
+                            <div class="completion-box">
+                                <h3>Поздравляем! Вы создали простую нейросеть!</h3>
+                                <p>Вы успешно прошли все шаги создания нейросети для анализа настроения и простого чата. Теперь у вас есть базовое понимание процесса создания ИИ.</p>
+                                
+                                <div class="certificate">
+                                    <i class="fas fa-certificate"></i>
+                                    <div>
+                                        <h4>Сертификат о прохождении</h4>
+                                        <p>Вы можете скачать сертификат о создании своей первой нейросети</p>
+                                        <button id="downloadCert" class="btn btn-primary">Скачать сертификат</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-check">
+                                <input type="checkbox" id="step6-check">
+                                <label for="step6-check">Я завершил создание нейросети и чат-бота</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Навигация по шагам -->
+                    <div class="step-navigation">
+                        <button id="prevStep" class="btn btn-outline" disabled>Назад</button>
+                        <div class="step-indicator">Шаг <span id="currentStep">1</span> из 6</div>
+                        <button id="nextStep" class="btn btn-primary">Далее</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-brain"></i>
+                        <span>ИИ для чайников</span>
+                    </a>
+                    <p>Образовательный проект по искусственному интеллекту для начинающих. Бесплатные курсы и консультации.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Страницы</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="course.html">Курс по ИИ</a></li>
+                        <li><a href="trainer.html">Тренажер</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Контакты</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +7 (953) 698-82-47</p>
+                        <p><i class="fas fa-envelope"></i>v.karetnikova1908@gmail.com</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ИИ для чайников. Все права защищены.Образовательный некоммерческий проект.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
